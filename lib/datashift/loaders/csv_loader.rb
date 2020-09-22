@@ -56,13 +56,10 @@ module DataShift
           logger.info "Processing #{parsed_file.size} rows"
 
           parsed_file.each_with_index do |row, i|
-
             logger.info "Processing Row #{i} : #{row}"
 
             # Iterate over the bindings, creating a context from data in associated Excel column
-
             @binder.bindings.each_with_index do |method_binding, i|
-
               unless method_binding.valid?
                 logger.warn("No binding was found for column (#{i}) [#{method_binding.pp}]")
                 next
